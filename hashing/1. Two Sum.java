@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 class Solution {
     public static int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> seen = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> seen = new HashMap<>();
         int[] result = new int[2];
 
         for (int i = 0; i < nums.length; i++) {
@@ -28,7 +28,6 @@ class Solution {
         }
         return result;
     }
-
 
     public static void main(String[] args) {
         int[] a = {2, 7, 11, 15};
