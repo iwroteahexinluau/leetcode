@@ -34,12 +34,12 @@ class Solution {
 
             // if it is a matching anagram, add it the pre-existing group
             if (seen.containsKey(key)) {
-                groups.get(seen.get(key)).add(strs[i]);
+                groups.get(seen.get(key)).add(word);
             // if it is a new anagram, make a new group
             } else {
                 seen.put(key, pos);
                 ArrayList<String> newGroup = new ArrayList<>();
-                newGroup.add(strs[i]);
+                newGroup.add(word);
                 groups.add(newGroup);
                 pos++;
             }
