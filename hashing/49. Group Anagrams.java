@@ -9,12 +9,13 @@
  * Time O(n * m), Space O(n)
  */
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 class Solution {
-    public static ArrayList<ArrayList<String>> groupAnagrams(String[] strs) {
-        ArrayList<ArrayList<String>> groups = new ArrayList<>();
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        List<List<String>> groups = new ArrayList<>();
         HashMap<String, Integer> seen = new HashMap<>();
 
         int pos = 0;
@@ -38,7 +39,7 @@ class Solution {
             // if it is a new anagram, make a new group
             } else {
                 seen.put(key, pos);
-                ArrayList<String> newGroup = new ArrayList<>();
+                List<String> newGroup = new ArrayList<>();
                 newGroup.add(word);
                 groups.add(newGroup);
                 pos++;
