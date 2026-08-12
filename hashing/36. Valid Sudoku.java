@@ -1,17 +1,26 @@
 /* https://leetcode.com/problems/valid-sudoku/description/
  * 36. Valid Sudoku
  *
+ * Initial Approach:
  * We can use a set to check whether a number has already been seen in each row, column,
  * and 3x3 box. If the number has been seen, we can immediately return false, otherwise
  * we add it to the set. After each row, column, and box, we clear the set to reuse it.
  *
- * Time O(n), Space O(1)
- * n = number of board squares
+ * Optimized Approach:
+ * We can use three 2d boolean arrays instead of sets, and check each row, column, and
+ * 3x3 box in one pass. The 2d boolean array represents the row/col/box and the digit
+ * value. We can calculate the current box with box = i / 3 * 3 + j / 3;
+ *
+ * Time O(1), Space O(1)
+ * Since the Sudoku board has a constant of 81 squares, the time and space complexity
+ * is fixed at O(1). If the board had n total cells, the time and space complexity would
+ * be O(n), where n = number of board squares.
  */
 
 import java.util.HashSet;
 
 class Solution {
+    // initial approach
     public static boolean validSudoku(char[][] board) {
         HashSet<Character> seenRow = new HashSet<>();
         HashSet<Character> seenCol = new HashSet<>();
@@ -53,6 +62,29 @@ class Solution {
         return true;
     }
 
+    // optimized approach
+    public static boolean optimizedValidSudoku(char[][] board) {
+        boolean[][] rows = new boolean[9][9];
+        boolean[][] cols = new boolean[9][9];
+        boolean[][] boxes = new boolean[9][9];
+        
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] == '.') {
+                    continue;
+                }
+                int num = board[i][j] - '1'; // makes the digits 1-9 -> 0-8 to match zero index
+                int box = i / 3 * 3 + j / 3;
+
+                if (rows[i][num] || cols[j][num] || boxes[box][num]) {
+                    return false;
+                }
+                rows[i][num] = cols[j][num] = boxes[box][num] = true;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         char[][] a = {{'5','3','.','.','7','.','.','.','.'},
             {'6','.','.','1','9','5','.','.','.'},
@@ -76,5 +108,8 @@ class Solution {
 
         System.out.println(validSudoku(a));
         System.out.println(validSudoku(b));
+
+        System.out.println(optimizedValidSudoku(a));
+        System.out.println(optimizedValidSudoku(b));
     }
 }
