@@ -57,7 +57,7 @@ class Solution {
         return results;
     }
     // alternative approach
-    public static List<String> optimizedFindAndReplace(String[] words, String pattern) {
+    public static List<String> alternateFindAndReplace(String[] words, String pattern) {
         List<String> results = new ArrayList<>();
         for (String word : words) {
             for (int i = 0; i < word.length(); i++) {
@@ -80,7 +80,7 @@ class Solution {
         System.out.println(findAndReplace(w1, p1));
         System.out.println(findAndReplace(w2, p2));
 
-        System.out.println(optimizedFindAndReplace(w1, p1));
-        System.out.println(optimizedFindAndReplace(w2, p2));
+        System.out.println(alternateFindAndReplace(w1, p1));
+        System.out.println(alternateFindAndReplace(w2, p2));
     }
 }
