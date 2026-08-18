@@ -9,14 +9,14 @@
  */
 
 class Solution {
-    public static int bestTimeToBuy(int[] nums) {
-        int lowest = nums[0];
+    public static int bestTimeToBuy(int[] prices) {
+        int lowest = prices[0];
         int difference = 0;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] >= lowest) {
-                difference = Math.max(difference, nums[i] - lowest);
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] >= lowest) {
+                difference = Math.max(difference, prices[i] - lowest);
             } else {
-                lowest = nums[i];
+                lowest = prices[i];
             }
         }
         return difference;
