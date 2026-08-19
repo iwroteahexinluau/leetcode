@@ -14,7 +14,8 @@
  * group can be seated, otherwise no groups are valid and therefore no groups can be
  * seated.
  *
- * Time O(n), Space O(n)
+ * Time O(m), Space O(m)
+ * m = reservedSeats.length
  */
 
 import java.util.HashMap;
