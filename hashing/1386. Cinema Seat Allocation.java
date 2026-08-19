@@ -30,7 +30,7 @@ class Solution {
             int row = reservation[0];
             if (!seen.containsKey(row)) {
                 boolean[] possibleGroups = {true, true, true};
-                seen.put(reservation[0], possibleGroups);
+                seen.put(row, possibleGroups);
             }
 
             int seat = reservation[1];
