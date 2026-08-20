@@ -11,7 +11,9 @@
  * Optimal Approach:
  * We can keep track of the sum of the k window, and as we loop through nums we subtract
  * the left pointer of the window and add the next num. This way we can avoid rebuilding
- * the entire sum and average of the window everytime, and can just check the average.
+ * the entire sum and average of the window everytime, and can just keep a running track
+ * of the current sum and biggest sum, then find the average of the biggest sum at the
+ * end.
  *
  * Time O(n), Space O(1)
  */
@@ -33,17 +35,17 @@ class Solution {
     // optimized approach
     public static double optimizedMaximumAverage(int[] nums, int k) {
         // build the initial window sum
-        double sum = 0;
+        int sum = 0;
         for (int i = 0; i < k; i++) {
             sum += nums[i];
         }
-        double max = sum / k;
+        int max = sum;
         for (int i = 1; i < nums.length - k + 1; i++) {
             sum -= nums[i - 1];
             sum += nums[i + k - 1];
-            max = Math.max(max, sum / k);
+            max = Math.max(max, sum);
         }
-        return max;
+        return (double) max / k;
     }
 
     public static void main(String[] args) {
