@@ -28,6 +28,7 @@ class Solution {
         int num2Length = num2.length();
         int[] product = new int[num1Length + num2Length];
         for (int i = num2Length - 1; i >= 0; i--) {
+            // characters are stored in unicode so we have to subtract 0 to get the actual integer value
             int num2Digit = num2.charAt(i) - '0';
             for (int j = num1Length - 1; j >= 0; j--) {
                 int num1Digit = num1.charAt(j) - '0';
