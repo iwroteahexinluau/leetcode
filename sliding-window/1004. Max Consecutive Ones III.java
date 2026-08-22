@@ -11,18 +11,18 @@
 
 class Solution {
     public static int maxConsecutiveOnes3(int[] nums, int k) {
-        int max = 0;
-        int mistakes = 0;
-        int left = 0; int right = 0;
-        while (left < nums.length && right < nums.length) {
+        int max = 0, mistakes = 0, left = 0, right = 0;
+        while (right < nums.length) {
             if (nums[right] == 0) {
                 mistakes++;
             }
             if (mistakes > k) {
                 max = Math.max(max, right - left);
+                // find first zero
                 while(nums[left] != 0) {
                     left++;
                 }
+                // move past zero
                 left++;
                 mistakes -= 1;
             }
