@@ -26,25 +26,6 @@ import java.util.List;
 import java.util.Stack;
 import java.util.ArrayList;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-    
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
-
 class Solution {
     // recursive solution
     public static List<Integer> inorderTraversalRecursive(TreeNode root) {
@@ -78,19 +59,10 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        TreeNode a3 = new TreeNode(3);
-        TreeNode a2 = new TreeNode(2, a3, null);
-        TreeNode a1 = new TreeNode(1, null, a2);
-
-        TreeNode b4 = new TreeNode(4);
-        TreeNode b6 = new TreeNode(6);
-        TreeNode b7 = new TreeNode(7);
-        TreeNode b9 = new TreeNode(9);
-        TreeNode b5 = new TreeNode(5, b6, b7);
-        TreeNode b2 = new TreeNode(2, b4, b5);
-        TreeNode b8 = new TreeNode(8, b9, null);
-        TreeNode b3 = new TreeNode(3, null, b8);
-        TreeNode b1 = new TreeNode(1, b2, b3);
+        Integer[] a = {1, null, 2, 3};
+        TreeNode a1 = TreeNode.buildHelper(a);
+        Integer[] b = {1, 2, 3, 4, 5, null, 8, null, null, 6, 7, 9};
+        TreeNode b1 = TreeNode.buildHelper(b);
 
         System.out.println(inorderTraversalRecursive(a1));
         System.out.println(inorderTraversalRecursive(b1));
