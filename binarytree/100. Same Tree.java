@@ -7,22 +7,25 @@
  * of the trees equals null while the other does not, we can immediately end the
  * recursion and return false.
  *
- * Time O(n), Space O(n)
- *
- * Iterative Solution:
- * We can use BFS using a linked list to visit each node in both trees. We store the
- * nodes we want to compare as an array inside the linked list, and check every pair. If
- * the two nodes ever do not equal each other, then we immediately return false. If we
- * successfully iterate through the entire tree, we return true.
- *
  * Time O(n), Space O(h)
  * h = height of the tree being traversed
+ * Space is O(n) worst case.
+ *
+ * Iterative Solution:
+ * We can use BFS using a linked list as a queue to visit each node in both trees. We 
+ * store the  nodes we want to compare as an array inside the linked list, and check 
+ * every pair. If the two nodes ever do not equal each other, then we immediately return
+ * false. If we successfully iterate through the entire tree, we return true.
+ *
+ * Time O(n), Space O(n)
+ * The queue holds the entire level of the tree at a time so O(n) space.
  */
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 class Solution {
+    // recursive solution
     public static boolean sameTreeRecursive(TreeNode p, TreeNode q) {
         if (p == null && q == null) {
             return true;
@@ -33,6 +36,7 @@ class Solution {
         return p.val == q.val && sameTreeRecursive(p.left, q.left) && sameTreeRecursive(p.right, q.right);
     }
 
+    // iterative solution
     public static boolean sameTreeIterative(TreeNode p, TreeNode q) {
         if (p == null && q == null) {
             return true;

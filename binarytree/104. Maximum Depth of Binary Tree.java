@@ -5,7 +5,9 @@
  * Our base case is when root == null and we return 0. Otherwise we recurse and take the
  * max of left and right, then add + 1 for the current level.
  *
- * Time O(n), Space O(n)
+ * Time O(n), Space O(h)
+ * h = height of the tree
+ * Space is O(n) worst case.
  *
  * Iterative Solution:
  * Use BFS with a queue to visit every node in the tree and determine the number of
