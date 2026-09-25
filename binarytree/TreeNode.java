@@ -8,6 +8,7 @@
 
 import java.util.Queue;
 import java.util.ArrayDeque;
+import java.util.LinkedList;
 
 public class TreeNode {
     int val;
@@ -53,5 +54,41 @@ public class TreeNode {
             i++;
         }
         return root;
+    }
+
+    public static TreeNode copyOf(TreeNode source) {
+        if (source == null) {
+            return null;
+        }
+
+        return new TreeNode(
+                source.val,
+                copyOf(source.left),
+                copyOf(source.right)
+                );
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder printString = new StringBuilder("[");
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(this);
+
+        while (!queue.isEmpty()) {
+            TreeNode current = queue.poll();
+            printString.append(current.val);
+
+            if (current.left != null) {
+                queue.add(current.left);
+            }
+            if (current.right != null) {
+                queue.add(current.right);
+            }
+            if (!queue.isEmpty()) {
+                printString.append(", ");
+            }
+        }
+        printString.append("]");
+        return printString.toString();
     }
 }
