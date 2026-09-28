@@ -10,7 +10,7 @@
  * Time O(n), Space O(h)
  * h = height of the tree
  *
- * Iterative Solution:
+ * Iterative Solution (DFS):
  * A more difficult solution because recursion lets the language itself handle the stack.
  * We go as far down the left tree as possible adding each node to a stack so we can
  * backtrack after we reach a null node. After we reach a null node, we pop the stack and
