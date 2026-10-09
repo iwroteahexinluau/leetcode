@@ -1,3 +1,13 @@
+/* ListNode
+ *
+ * My Linked List data structure that follows the documentation of the Leetcode ListNode
+ * class. The easiest way to create a ListNode is by using the buildHelper method on
+ * an int[] array exactly like how Leetcode displays the Linked List test cases.
+ *
+ * Also contains the methods toString and copyOf.
+ *
+ */
+
 public class ListNode {
     int val;
     ListNode next;
@@ -29,6 +39,14 @@ public class ListNode {
         }
 
         return front;
+    }
+
+    public static ListNode copyOf(ListNode source) {
+        if (source == null) {
+            return null;
+        }
+
+        return new ListNode(source.val, copyOf(source.next));
     }
 
     @Override
