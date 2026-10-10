@@ -5,7 +5,8 @@
  * an int[] array exactly like how Leetcode displays the Linked List test cases.
  *
  * Also contains the methods toString and copyOf.
- *
+ * Note: toString cannot be called on a null object so a null list node by itself prints
+ * as "null" not "[]".
  */
 
 public class ListNode {
